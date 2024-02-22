@@ -1,8 +1,16 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Head from 'next/head';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import { useEffect } from 'react';
 
 export default function Home() {
+  useEffect(() => {
+    setTimeout(() => {
+      const window = document.getElementById('iframe').contentWindow;
+      console.log('window', window.mojmoj);
+    }, 1000);
+  }, []);
+
   return (
     <div className="container">
       <Head>
@@ -17,7 +25,9 @@ export default function Home() {
         </p>
       </main>
 
+      <iframe id="iframe" width={800} height={800} src="/asdf"></iframe>
+
       <Footer />
     </div>
-  )
+  );
 }
